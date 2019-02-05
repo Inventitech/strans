@@ -5,4 +5,4 @@ dist: xenial
 dotnet: 2.2
 script:
  - dotnet restore
- - dotnet publish -C Release
+ - dotnet publish -c Release

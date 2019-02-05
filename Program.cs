@@ -7,12 +7,15 @@ using CommandLine;
 
 class Options
 {
-    [Option('b', "before", Required = true, HelpText = "An example of an input line before transformation")]
+    [Option('b', "before", SetName = "SingleExample", Required = true, HelpText = "An example of an input line before transformation")]
     public String before { get; set; }
-
-    [Option('a', "after", Required = true, HelpText = "An example of an output line after transformation")]
+    [Option('a', "after", SetName = "SingleExample", Required = true, HelpText = "An example of an output line after transformation")]
     public String after { get; set; }
+
+    [Option('f', "example-file", SetName = "MultiExample", Required = true, HelpText = "A file containing one or multiple transformation examples. The before and after transfer string are separated by => on the same line. One line per example.")]
+    public String multiFile { get; set; }
 }
+
 
 class MyProgram
 {
@@ -27,13 +30,8 @@ class MyProgram
     static int run(Options options)
     {
         Session session = new Session();
-        var before = options.before.Trim();
-        var after = options.after.Trim();
 
-        IEnumerable<Example> examples = new[]
-        {
-                new Example(new InputRow(before), after)
-            };
+        List<Example> examples = buildExamples(options);
         session.Constraints.Add(examples);
         Program program = session.Learn();
 
@@ -41,6 +39,38 @@ class MyProgram
 
         return 0;
     }
+
+    static List<Example> buildExamples(Options options)
+    {
+        List<Example> examples = new List<Example>();
+        var before = options.before.Trim();
+        var after = options.after.Trim();
+
+        examples.Add(new Example(new InputRow(before), after));
+
+        return examples;
+    }
+
+    static List<Example> buildExamples(string file)
+    {
+        List<Example> examples = new List<Example>();
+        string[] lines = System.IO.File.ReadAllLines(file);
+
+        foreach (string line in lines)
+        {
+            var example = line.Split("=>");
+            if (example.Length != 2)
+            {
+                Console.Error.WriteLine("Wrongly formatted line in examples: " + line);
+            }
+            else
+            {
+                examples.Add(new Example(new InputRow(example[0]), example[1]));
+            }
+        }
+        return examples;
+    }
+
 
     static void processInputPipe(Program program)
     {

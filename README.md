@@ -12,7 +12,7 @@ apply them to the input given on STDIN.
 
 How to Run
 ==========
-You need (https://dotnet.microsoft.com/)[dotnet] to run `strans`.
+You need [dotnet](https://dotnet.microsoft.com/) to run `strans`.
 
 An alias (in your bashrc, ...) makes `strans` integrate seamlessly in
 a Unix environment:
@@ -94,26 +94,26 @@ ls | strans -b File.pdf -a pdf | sort -u
 Note how nicely strans (here defined as an alias) integrates with other tools.
 
 Of course, as
-(https://stackoverflow.com/questions/1842254/how-can-i-find-all-of-the-distinct-file-extensions-in-a-folder-hierarchy)[StackOverflow]
+[StackOverflow](https://stackoverflow.com/questions/1842254/how-can-i-find-all-of-the-distinct-file-extensions-in-a-folder-hierarchy)
 will tell you, we could obtain the same result with
 
 ```
 ls | perl -ne 'print $1 if m/\.([^.\/]+)$/' | sort -u 
 ```
 
-But we could get the same done with much less brain work, without
-StackOverflow and Perl, but with more joy!
+But with `strans` we accomplished the same with much less brain work,
+without StackOverflow and Perl, but instead with pure joy!
 
 
-Related Work
-============
+Background
+==========
 
-`strans` uses program-by-example techniques from
-(https://microsoft.github.io/prose/)[Microsoft PROSE] to come up with
-the rules to do this string manipulation. It allows the creation of
+`strans` uses program-by-example techniques from [Microsoft
+PROSE](https://microsoft.github.io/prose/) to come up with the rules
+behind this string manipulation. PROSE allows the creation of
 extremely complex string transformations within a matter of a few
 seconds by just giving easy-to-write examples. In its essence,
 `strans` is only a light-weight wrapper around and direct application
 of Microsoft's PROSE framework. `strans` provides the goodness of the
 now-removed PowerShell (!) command
-(https://docs.microsoft.com/en-us/powershell/module/Microsoft.PowerShell.Utility/Convert-String?view=powershell-5.1)[Convert-String].
+[Convert-String](https://docs.microsoft.com/en-us/powershell/module/Microsoft.PowerShell.Utility/Convert-String?view=powershell-5.1).

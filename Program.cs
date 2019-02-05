@@ -31,7 +31,18 @@ class MyProgram
     {
         Session session = new Session();
 
-        List<Example> examples = buildExamples(options);
+        HashSet<Example> examples;
+        if(options.multiFile != null) {
+            examples = buildExamples(options.multiFile);
+        }
+        else {
+            examples = buildExamples(options);
+        }
+
+        if(examples.Count < 1) {
+            Console.Error.WriteLine(@"Error: You need to provide at least one valid transformation example of form 'before => after'.");
+            return -1;
+        }
         session.Constraints.Add(examples);
         Program program = session.Learn();
 
@@ -40,9 +51,9 @@ class MyProgram
         return 0;
     }
 
-    static List<Example> buildExamples(Options options)
+    static HashSet<Example> buildExamples(Options options)
     {
-        List<Example> examples = new List<Example>();
+        HashSet<Example> examples = new HashSet<Example>();
         var before = options.before.Trim();
         var after = options.after.Trim();
 
@@ -51,21 +62,21 @@ class MyProgram
         return examples;
     }
 
-    static List<Example> buildExamples(string file)
+    static HashSet<Example> buildExamples(string file)
     {
-        List<Example> examples = new List<Example>();
+        HashSet<Example> examples = new HashSet<Example>();
         string[] lines = System.IO.File.ReadAllLines(file);
 
         foreach (string line in lines)
         {
-            var example = line.Split("=>");
+            var example = line.Split(@"=>");
             if (example.Length != 2)
             {
                 Console.Error.WriteLine("Wrongly formatted line in examples: " + line);
             }
             else
             {
-                examples.Add(new Example(new InputRow(example[0]), example[1]));
+                examples.Add(new Example(new InputRow(example[0].Trim()), example[1].Trim()));
             }
         }
         return examples;
@@ -74,10 +85,10 @@ class MyProgram
 
     static void processInputPipe(Program program)
     {
-        string s;
-        while ((s = Console.ReadLine()) != null)
+        string line;
+        while ((line = Console.ReadLine()) != null)
         {
-            Console.WriteLine(program.Run(new InputRow(s)));
+            Console.WriteLine(program.Run(new InputRow(line)));
         }
     }
 }

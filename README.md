@@ -24,7 +24,36 @@ ALIAS strans="dotnet path/to/strans.dll"
 Examples
 ========
 
-## Convert full names to their initials.
+
+## Example 1: Extract ending of files
+
+Assume that
+
+```
+ls
+Document.pdf  Document2.pdf Document.txt  Document.png
+```
+
+Now we want to get a unique list of all file endings present in the directory:
+
+```
+ls | strans -b Document.pdf -a pdf | sort -u
+```
+
+Note how nicely strans (here defined as an alias) integrates with other tools.
+
+Of course, as
+[StackOverflow](https://stackoverflow.com/questions/1842254/how-can-i-find-all-of-the-distinct-file-extensions-in-a-folder-hierarchy)
+will tell you, we could obtain the same result with
+
+```
+ls | perl -ne 'print $1 if m/\.([^.\/]+)$/' | sort -u 
+```
+
+But with `strans` we accomplished the same with much less brain work,
+without StackOverflow and Perl, but instead with pure joy!
+
+## Example 2: Convert full names to their initials.
 
 ```
 printf "Moritz Beller\nGeorgios Gousios" |
@@ -49,7 +78,7 @@ AZ
 ```
 
 We can fix this by providing `strans` with another example. We create
-a file called example-transformations
+a file called `example-transformations`
 
 ```
 First Last => FL
@@ -76,33 +105,6 @@ transformation rule that satisfies all examples given to it. Simply
 having the last FML example would not be enough, because it would miss
 the case where only two names are available.
 
-## Extract ending of all files in current directory
-
-Assume that
-
-```
-ls
-Document.pdf  Document2.pdf Document.txt  Document.png
-```
-
-Now we want to get a unique list of all file endings present in the directory:
-
-```
-ls | strans -b File.pdf -a pdf | sort -u
-```
-
-Note how nicely strans (here defined as an alias) integrates with other tools.
-
-Of course, as
-[StackOverflow](https://stackoverflow.com/questions/1842254/how-can-i-find-all-of-the-distinct-file-extensions-in-a-folder-hierarchy)
-will tell you, we could obtain the same result with
-
-```
-ls | perl -ne 'print $1 if m/\.([^.\/]+)$/' | sort -u 
-```
-
-But with `strans` we accomplished the same with much less brain work,
-without StackOverflow and Perl, but instead with pure joy!
 
 
 Background

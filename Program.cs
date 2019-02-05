@@ -42,8 +42,14 @@ class MyProgram
             Console.Error.WriteLine(@"Error: You need to provide at least one valid transformation example of form 'before => after'.");
             return -1;
         }
+
         session.Constraints.Add(examples);
         Program program = session.Learn();
+
+        if(program == null) {
+            Console.Error.WriteLine(@"Error: Given your transformation examples, no program could be learned.");
+            return -1;
+        }
 
         processInputPipe(program);
 
@@ -68,6 +74,10 @@ class MyProgram
 
         foreach (string line in lines)
         {
+            if(line.Trim().Equals(System.String.Empty)) {
+                continue;
+            }
+            
             var example = line.Split(@"=>");
             if (example.Length != 2)
             {

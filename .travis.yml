@@ -1,0 +1,6 @@
+language: csharp
+mono: none
+dotnet: 2.2
+script:
+ - dotnet restore
+ - dotnet publish -C Release

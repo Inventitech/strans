@@ -16,7 +16,6 @@ class Options
     public String multiFile { get; set; }
 }
 
-
 class MyProgram
 {
     static int Main(string[] args)
@@ -72,7 +71,7 @@ class MyProgram
             var example = line.Split(@"=>");
             if (example.Length != 2)
             {
-                Console.Error.WriteLine("Wrongly formatted line in examples: " + line);
+                Console.Error.WriteLine(@"Wrongly formatted line in examples: " + line);
             }
             else
             {

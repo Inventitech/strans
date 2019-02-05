@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/stransform.csproj"
+                "${workspaceFolder}/strans.csproj"
             ],
             "problemMatcher": "$msCompile"
         }

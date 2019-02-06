@@ -8,7 +8,6 @@ using CommandLine.Text;
 
 namespace CommandLine.Text
 {
-    // HelpText="Performs string manipulation tasks by learning from the provided example(s), instead of having to program them out explicitly.
     class Options
     {
         [Option('b', "before", SetName = "SingleExample", Required = true, HelpText = "An example of an input line before transformation")]

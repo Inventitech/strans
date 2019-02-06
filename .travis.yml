@@ -6,7 +6,7 @@ dotnet: 2.2
 script:
  - dotnet restore
  - dotnet publish -c Release
- deploy:
+deploy:
   provider: releases
   api_key: $GITHUBOAUTH
   file: bin/Release/netcoreapp2.2/strans.dll

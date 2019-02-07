@@ -23,7 +23,7 @@ ALIAS strans="dotnet path/to/strans.dll"
 
 Examples
 ========
-
+![Strans in action](strans.gif "Strans in action")
 
 ## Example 1: Extract ending of files
 

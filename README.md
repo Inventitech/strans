@@ -10,15 +10,35 @@ she needs to do is provide `strans` with a set of examples. `strans`
 will automagically learn transformation rules from these examples and
 apply them to the input given on STDIN.
 
-How to Run
-==========
+How to Install
+==============
 You need [dotnet](https://dotnet.microsoft.com/) to run `strans`.
+
+```
+git clone https://github.com/Inventitech/strans.git
+cd strans
+dotnet restore
+dotnet publich -c Release
+```
 
 An alias (in your bashrc, ...) makes `strans` integrate seamlessly in
 a Unix environment:
 
 ```
 ALIAS strans="dotnet path/to/strans.dll"
+```
+
+How to Run
+==========
+```
+# With before and after example
+strans -b pattern-to-match -a desired-transformation
+
+# With file that contains examples
+strans -f file-with-examples
+
+# Help page
+strans --help
 ```
 
 Examples

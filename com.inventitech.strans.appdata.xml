@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-​<component type="console-application">
-​  <id>com.inventitech.strans</id>
-​  <name>strans</name>
-​  <summary>A command line tool that performs string manipulation tasks by learning from the provided example(s), instead of having to program them out explicitly.</summary>
-​  <url type="homepage">http://www.inventitech.com</url>
-​  <metadata_license>CC-BY-NC-SA-4.0</metadata_license>
-​  <content_rating type="oars-1.0" />
-
-​  <provides>
-​    <binary>strans</binary>
-​  </provides>
-​  <releases>
-​    <release version="0.0.1" date="2019-02-28" />
-​  </releases>
-​  <developer_name>Moritz Beller</developer_name>
-​</component>
+<!-- Copyright 2019 Moritz Beller -->
+<component type="console-application">
+  <id>com.inventitech.strans</id>
+  <name>strans</name>
+  <summary>Performs string manipulation by learning from the provided examples, instead of explicit programming</summary>
+  <url type="homepage">http://www.inventitech.com</url>
+  <metadata_license>CC-BY-SA-4.0</metadata_license>
+  <content_rating type="oars-1.0" />
+  <project_license>GPL-3.0</project_license>
+  
+  <provides>
+    <binary>strans</binary>
+  </provides>
+  <releases>
+    <release version="0.0.1" date="2019-02-28" />
+  </releases>
+  <developer_name>Moritz Beller</developer_name>
+  ​<update_contact>moritzbeller_AT_gmx.de</update_contact>
+</component>

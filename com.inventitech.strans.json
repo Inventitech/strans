@@ -1,0 +1,22 @@
+{
+    "app-id": "com.inventitech.strans",
+    "runtime": "org.freedesktop.Platform",
+    "runtime-version": "18.08",
+    "sdk": "org.freedesktop.Sdk",
+    "command": "strans",
+    "modules": [
+        {
+            "name": "strans",
+            "buildsystem": "simple",
+            "build-commands": [
+                "install -D strans /app/bin/strans"
+            ],
+            "sources": [
+                {
+                    "type": "file",
+                    "path": "strans"
+                }
+            ]
+        }
+    ]
+}

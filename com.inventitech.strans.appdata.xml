@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+​<component>
+​  <id>com.inventitech.strans</id>
+​  <name>Strans</name>
+​  <summary>A command line tool that performs string manipulation tasks by learning from the provided example(s), instead of having to program them out explicitly.</summary>
+​  <url type="homepage">http://www.inventitech.com</url>
+​  <metadata_license>CC-BY-NC-SA-4.0</metadata_license>
+​
+​  <provides>
+​    <binary>strans</binary>
+​  </provides>
+​  <releases>
+​    <release version="0.0.1" date="2019-02-28" />
+​  </releases>
+​  <developer_name>Moritz Beller</developer_name>
+​</component>

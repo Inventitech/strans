@@ -12,21 +12,16 @@ apply them to the input given on STDIN.
 
 How to Install
 ==============
-You need [dotnet](https://dotnet.microsoft.com/) to run `strans`.
 
-```
-git clone https://github.com/Inventitech/strans.git
-cd strans
-dotnet restore
-dotnet publich -c Release
-```
+The easiest way to run `strans` is by installing it via flatpak:
 
-An alias (in your bashrc, ...) makes `strans` integrate seamlessly in
-a Unix environment:
+After downloading the latest `strans.flatpak` from
+[releases](https://github.com/Inventitech/strans/releases), install it
+via
 
-```
-ALIAS strans="dotnet path/to/strans.dll"
-```
+`sudo flatpak install strans.flatpak`
+
+> Note: This standalone Flatpak package will not auto-update. 
 
 How to Run
 ==========
@@ -125,6 +120,24 @@ transformation rule that satisfies all examples given to it. Simply
 having the last FML example would not be enough, because it would miss
 the case where only two names are available.
 
+How to Build for Developing
+===========================
+
+You need [dotnet](https://dotnet.microsoft.com/) to run `strans`.
+
+```
+git clone https://github.com/Inventitech/strans.git
+cd strans
+dotnet restore
+dotnet publich -c Release
+```
+
+An alias (in your bashrc, ...) makes `strans` integrate seamlessly in
+a Unix environment:
+
+```
+ALIAS strans="dotnet path/to/strans.dll"
+```
 
 
 Background

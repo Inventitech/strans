@@ -13,7 +13,10 @@ apply them to the input given on STDIN.
 How to Install
 ==============
 
-The easiest way to run `strans` is by installing it via flatpak:
+The easiest way to run `strans` is by installing it via flatpak. It 
+assumes that you have the 
+`sudo flatpak install flathub org.freedesktop.Sdk.Extension.dotnet//18.08`
+runtime installed on your system.
 
 After downloading the latest `strans.flatpak` from
 [releases](https://github.com/Inventitech/strans/releases), install it
@@ -68,7 +71,7 @@ ls | perl -ne 'print $1 if m/\.([^.\/]+)$/' | sort -u
 But with `strans` we accomplished the same with much less brain work,
 without StackOverflow and Perl, but instead with pure joy!
 
-## Example 2: Convert full names to their initials.
+## Example 2: Convert full names to their initials
 
 ```
 printf "Moritz Beller\nGeorgios Gousios" |
@@ -129,7 +132,7 @@ You need [dotnet](https://dotnet.microsoft.com/) to run `strans`.
 git clone https://github.com/Inventitech/strans.git
 cd strans
 dotnet restore
-dotnet publich -c Release
+dotnet publish -c Release
 ```
 
 An alias (in your bashrc, ...) makes `strans` integrate seamlessly in

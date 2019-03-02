@@ -15,7 +15,9 @@ How to Install
 
 The easiest way to run `strans` is by installing it via flatpak. It 
 assumes that you have the 
-`sudo flatpak install flathub org.freedesktop.Sdk.Extension.dotnet//18.08`
+
+`flatpak install flathub org.freedesktop.Platform//18.08 org.freedesktop.Sdk//18.08`
+
 runtime installed on your system.
 
 After downloading the latest `strans.flatpak` from

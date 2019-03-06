@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using Microsoft.ProgramSynthesis;
 using Microsoft.ProgramSynthesis.Transformation.Text;
 using Microsoft.ProgramSynthesis.Wrangling.Constraints;
+
 using CommandLine;
 using CommandLine.Text;
+using Microsoft.ProgramSynthesis.AST;
 
 namespace CommandLine.Text
 {
@@ -17,6 +19,10 @@ namespace CommandLine.Text
 
         [Option('f', "example-file", SetName = "MultiExample", Required = true, HelpText = "A file containing one or multiple transformation examples. The before and after transfer string are separated by => on the same line. One line per example.")]
         public String exampleFile { get; set; }
+
+        
+        [Option("describe", Required = false, HelpText = "Print-out a human-readable description of the inferred program, based on the examples. Do not perform any actual string transformation.")]
+        public bool describe { get; set; }
 
         [Usage(ApplicationAlias = "strans")]
         public static IEnumerable<Example> Examples
@@ -73,6 +79,13 @@ namespace Microsoft.ProgramSynthesis.Transformation.Text
                 Console.Error.WriteLine(@"Error: Given your transformation examples, no program could be learned.");
                 return -1;
             }
+
+            if(options.describe) {
+                Console.Out.WriteLine(program.Serialize(ASTSerializationFormat.HumanReadable));
+                return 0;
+            }
+
+
 
             processInputPipe(program);
 

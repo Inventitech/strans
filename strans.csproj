@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.2</TargetFramework>
-    <Version>0.0.1</Version>
+    <Version>0.0.2</Version>
     <Copyright>Copyirght (C) 2019 Moritz Beller (Inventitech)</Copyright>
   </PropertyGroup>
 

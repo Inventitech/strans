@@ -20,7 +20,13 @@ namespace CommandLine.Text
         [Option('f', "example-file", SetName = "MultiExample", Required = true, HelpText = "A file containing one or multiple transformation examples. The before and after transfer string are separated by => on the same line. One line per example.")]
         public String exampleFile { get; set; }
 
-        
+
+        [Option("save", Required = false, HelpText = "Save the inferred program in a file, based on the examples. Does not execute the actual program.")]
+        public String save { get; set; }
+
+        [Option("load", Required = true, SetName = "Serialization", HelpText = "Load a previously inferred program from a file.")]
+        public String load { get; set; }
+
         [Option("describe", Required = false, HelpText = "Print-out a human-readable description of the inferred program, based on the examples. Do not perform any actual string transformation.")]
         public bool describe { get; set; }
 
@@ -51,9 +57,15 @@ namespace Microsoft.ProgramSynthesis.Transformation.Text
                     _ => 1);
         }
 
-        static int run(Options options)
+        static Program buildProgram(Options options)
         {
             Session session = new Session();
+
+            if (options.load != null)
+            {
+                string program = System.IO.File.ReadAllText(options.load);
+                return session.Load(program, ASTSerializationFormat.XML);
+            }
 
             HashSet<Example> examples;
             if (options.exampleFile != null)
@@ -68,11 +80,16 @@ namespace Microsoft.ProgramSynthesis.Transformation.Text
             if (examples.Count < 1)
             {
                 Console.Error.WriteLine(@"Error: You need to provide at least one valid transformation example of form 'before => after'.");
-                return -1;
+                return null;
             }
 
             session.Constraints.Add(examples);
-            Program program = session.Learn();
+            return session.Learn();
+        }
+
+        static int run(Options options)
+        {
+            Program program = buildProgram(options);
 
             if (program == null)
             {
@@ -80,12 +97,17 @@ namespace Microsoft.ProgramSynthesis.Transformation.Text
                 return -1;
             }
 
-            if(options.describe) {
+            if (options.describe)
+            {
                 Console.Out.WriteLine(program.Serialize(ASTSerializationFormat.HumanReadable));
                 return 0;
             }
 
-
+            if (options.save != null)
+            {
+                System.IO.File.WriteAllText(options.save, program.Serialize(ASTSerializationFormat.XML));
+                return 0;
+            }
 
             processInputPipe(program);
 

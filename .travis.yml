@@ -10,7 +10,7 @@ script:
  - dotnet restore
 after_success:
  - dotnet publish -c Release
- - sh AppDir/bundle.sh
+ - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sh AppDir/bundle.sh; fi
 deploy:
   provider: releases
   api_key: $GITHUBOAUTH

@@ -348,3 +348,6 @@ healthchecksdb
 #!! ERROR: vscode is undefined. Use list command to see defined gitignore types !!#
 
 # End of https://www.gitignore.io/api/csharp,vscode
+
+AppDir/usr/
+AppImages/

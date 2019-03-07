@@ -1,0 +1,10 @@
+# Desktop Entry Specification: https://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html
+[Desktop Entry]
+Type=Application
+Name=strans
+Comment=Performs string manipulation by learning from the provided examples, instead of explicit programming. Can replace sed in many instances (and is easier to use)
+Exec=strans
+Path=~
+Icon=strans
+Terminal=true
+Categories=Development;

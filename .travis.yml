@@ -5,11 +5,15 @@ dist: xenial
 dotnet: 2.2
 script:
  - dotnet restore
+after_success:
  - dotnet publish -c Release
+ - sh AppDir/bundle.sh
 deploy:
   provider: releases
   api_key: $GITHUBOAUTH
-  file: bin/Release/netcoreapp2.2/strans.dll
+  file:
+   - strans-linux.AppImage
+   - bin/Release/netcoreapp2.2/strans.dll
   skip_cleanup: true
   draft: true
   on:

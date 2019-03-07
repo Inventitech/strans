@@ -11,6 +11,7 @@ script:
 after_success:
  - dotnet publish -c Release
  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sh AppDir/bundle.sh; fi
+ - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then sh bundle_macos.sh; fi
 deploy:
   provider: releases
   api_key: $GITHUBOAUTH

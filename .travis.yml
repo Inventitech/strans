@@ -17,8 +17,11 @@ deploy:
   api_key: $GITHUBOAUTH
   file:
    - strans-linux.AppImage
+   - strans-macos.dmg
    - bin/Release/netcoreapp2.2/strans.dll
   skip_cleanup: true
   draft: true
   on:
     tags: false
+    all_branches: true
+    

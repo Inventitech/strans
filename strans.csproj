@@ -3,14 +3,32 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.2</TargetFramework>
+    <RuntimeFrameworkVersion>2.2.0</RuntimeFrameworkVersion> 
     <Version>0.0.2</Version>
     <Copyright>Copyirght (C) 2019 Moritz Beller (Inventitech)</Copyright>
     <RuntimeIdentifiers>linux-x64;osx-x64</RuntimeIdentifiers>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <CFBundleName>AppName</CFBundleName>
+    <CFBundleDisplayName>App Name</CFBundleDisplayName>
+    <CFBundleIdentifier>com.example</CFBundleIdentifier>
+    <CFBundleVersion>1.0.0</CFBundleVersion>
+    <CFBundlePackageType>AAPL</CFBundlePackageType>
+    <CFBundleSignature>????</CFBundleSignature>
+    <CFBundleExecutable>AppName</CFBundleExecutable>
+    <CFBundleIconFile>AppName.icns</CFBundleIconFile>
+    <NSPrincipalClass>NSApplication</NSPrincipalClass>
+    <NSHighResolutionCapable>true</NSHighResolutionCapable>
+</PropertyGroup>
+
+
   <ItemGroup>
     <PackageReference Include="CommandLineParser" Version="2.4.3" />
+    <PackageReference Include="dotnet-bundle" Version="0.9.8" />
+    <PackageReference Include="Dotnet.Bundle" Version="0.9.8" />
     <PackageReference Include="Microsoft.ProgramSynthesis" Version="6.11.0" />
+    <DotNetCliToolReference Include="dotnet-bundle" Version="*" />
   </ItemGroup>
 
 </Project>

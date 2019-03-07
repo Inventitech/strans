@@ -10,13 +10,13 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <CFBundleName>AppName</CFBundleName>
-    <CFBundleDisplayName>App Name</CFBundleDisplayName>
-    <CFBundleIdentifier>com.example</CFBundleIdentifier>
-    <CFBundleVersion>1.0.0</CFBundleVersion>
+    <CFBundleName>strans</CFBundleName>
+    <CFBundleDisplayName>strans</CFBundleDisplayName>
+    <CFBundleIdentifier>com.inventitech.strans</CFBundleIdentifier>
+    <CFBundleVersion>0.0.2</CFBundleVersion>
     <CFBundlePackageType>AAPL</CFBundlePackageType>
     <CFBundleSignature>????</CFBundleSignature>
-    <CFBundleExecutable>AppName</CFBundleExecutable>
+    <CFBundleExecutable>strans</CFBundleExecutable>
     <CFBundleIconFile>AppName.icns</CFBundleIconFile>
     <NSPrincipalClass>NSApplication</NSPrincipalClass>
     <NSHighResolutionCapable>true</NSHighResolutionCapable>

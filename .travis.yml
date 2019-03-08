@@ -10,14 +10,14 @@ script:
  - dotnet restore
 after_success:
  - dotnet publish -c Release
- - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sh AppDir/bundle.sh; fi
- - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then sh bundle_macos.sh; fi
+ - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sh release/release_linux.sh; fi
+ - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then sh release/release_macos.sh; fi
 deploy:
   provider: releases
   api_key: $GITHUBOAUTH
   file:
-   - strans-linux.AppImage
-   - strans-macos.dmg
+   - release/strans-linux.AppImage
+   - release/strans-macos.dmg
    - bin/Release/netcoreapp2.2/strans.dll
   skip_cleanup: true
   draft: true

@@ -15,9 +15,9 @@
     <CFBundleIdentifier>com.inventitech.strans</CFBundleIdentifier>
     <CFBundleVersion>0.0.2</CFBundleVersion>
     <CFBundlePackageType>AAPL</CFBundlePackageType>
-    <CFBundleSignature>????</CFBundleSignature>
+    <CFBundleSignature>com.inventitech.strans</CFBundleSignature>
     <CFBundleExecutable>strans</CFBundleExecutable>
-    <CFBundleIconFile>AppName.icns</CFBundleIconFile>
+    <CFBundleIconFile>strans-icon.png</CFBundleIconFile>
     <NSPrincipalClass>NSApplication</NSPrincipalClass>
     <NSHighResolutionCapable>true</NSHighResolutionCapable>
 </PropertyGroup>

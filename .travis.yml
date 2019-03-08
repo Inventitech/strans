@@ -1,20 +1,27 @@
+os:
+ - linux
+ - osx
 language: csharp
 mono: none
 sudo: required
 dist: xenial
-dotnet: 2.2
+dotnet: 2.2.104
 script:
  - dotnet restore
 after_success:
  - dotnet publish -c Release
- - sh AppDir/bundle.sh
+ - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sh release/release_linux.sh; fi
+ - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then sh release/release_macos.sh; fi
 deploy:
   provider: releases
   api_key: $GITHUBOAUTH
   file:
-   - strans-linux.AppImage
+   - release/strans-linux.AppImage
+   - release/strans-macos.dmg
    - bin/Release/netcoreapp2.2/strans.dll
   skip_cleanup: true
   draft: true
   on:
     tags: false
+    all_branches: true
+    

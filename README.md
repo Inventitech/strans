@@ -13,22 +13,35 @@ apply them to the input given on STDIN.
 How to Install
 ==============
 
-The easiest way to run `strans` is by installing it via flatpak. It 
-assumes that you have the 
+`strans` is distributed as an AppImage for Linux and as a DMG for MacOs.
+Download the latest `strans` from
+[releases](https://github.com/Inventitech/strans/releases).
 
-`flatpak install flathub org.freedesktop.Platform//18.08 org.freedesktop.Sdk//18.08`
+## Linux
+Our AppImage should run on practically any recent linux Desktop distribution.
 
-runtime installed on your system.
+After downloading, simply do
 
-After downloading the latest `strans.flatpak` from
-[releases](https://github.com/Inventitech/strans/releases), install it
-via
+`
+chmod +x strans-linux.AppImage
+./strans-linux.AppImage
+`
 
-`sudo flatpak install strans.flatpak`
+To install it system-wide as `strans`, just
 
-> Note: This standalone Flatpak package will not auto-update. 
+`sudo cp strans-linux.AppImage /usr/bin/strans`
 
-How to Run
+## MacOs
+After mounting the dmg and copying `strans.app` into /Applications, it might be necessary to
+
+```
+chmod +x /Applications/strans.app/Contents/MacOS/strans
+/Applications/strans.app/Contents/MacOS/strans
+```
+to run `strans`.
+ 
+
+How to Use
 ==========
 ```
 # With before and after example
@@ -77,7 +90,7 @@ without StackOverflow and Perl, but instead with pure joy!
 
 ```
 printf "Moritz Beller\nGeorgios Gousios" |
-dotnet strans.dll -b "First Last" -a "FL"
+strans -b "First Last" -a "FL"
 ```
 
 neatly outputs
@@ -109,7 +122,7 @@ and call
 
 ```
 printf "Moritz Beller\nGeorgios Gousios\nAndy Emil Zaidman" |
-dotnet strans.dll --example-file example-transformations
+strans --example-file example-transformations
 ```
 
 And, voila, the output is
@@ -125,8 +138,8 @@ transformation rule that satisfies all examples given to it. Simply
 having the last FML example would not be enough, because it would miss
 the case where only two names are available.
 
-How to Build for Developing
-===========================
+How to Develop
+==============
 
 You need [dotnet](https://dotnet.microsoft.com/) to run `strans`.
 
@@ -137,7 +150,7 @@ dotnet restore
 dotnet publish -c Release
 ```
 
-An alias (in your bashrc, ...) makes `strans` integrate seamlessly in
+An alias (in your bashrc, ...) can make `strans` integrate seamlessly in
 a Unix environment:
 
 ```

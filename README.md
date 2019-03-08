@@ -2,6 +2,10 @@ strans
 ======
 
 [![Build Status](https://travis-ci.com/Inventitech/strans.svg?token=1pPnTvKwseJq7cTLeeFE&branch=master)](https://travis-ci.com/Inventitech/strans)
+![LOC](https://tokei.rs/b1/github/inventitech/strans)
+[![Github Releases](https://img.shields.io/github/downloads/inventitech/strans/total.svg)](https://github.com/Inventitech/strans/releases)
+[![Join the chat at https://gitter.im/inventitech/strans](https://badges.gitter.im/inventitech/strans.svg)](https://gitter.im/inventitech/strans?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 
 `strans` (string transform) is an intuitive string manipulation
 utility for the shell (primarily Unix, but should work™
@@ -32,7 +36,7 @@ To install it system-wide as `strans`, just
 `sudo cp strans-linux.AppImage /usr/bin/strans`
 
 ## MacOs
-After mounting the dmg and copying `strans.app` into /Applications, it might be necessary to
+After mounting the `dmg` and copying `strans.app` into `/Applications`, it might be necessary to
 
 ```
 chmod +x /Applications/strans.app/Contents/MacOS/strans

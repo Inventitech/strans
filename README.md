@@ -158,7 +158,7 @@ An alias (in your bashrc, ...) can make `strans` integrate seamlessly in
 a Unix environment:
 
 ```
-ALIAS strans="dotnet path/to/strans.dll"
+alias strans="dotnet path/to/strans.dll"
 ```
 
 

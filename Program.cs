@@ -7,6 +7,7 @@ using Microsoft.ProgramSynthesis.Wrangling.Constraints;
 using CommandLine;
 using CommandLine.Text;
 using Microsoft.ProgramSynthesis.AST;
+using System.Linq;
 
 namespace CommandLine.Text
 {
@@ -30,6 +31,7 @@ namespace CommandLine.Text
         [Option("describe", Required = false, HelpText = "Print-out a human-readable description of the inferred program, based on the examples. Do not perform any actual string transformation.")]
         public bool describe { get; set; }
 
+
         [Usage(ApplicationAlias = "strans")]
         public static IEnumerable<Example> Examples
         {
@@ -39,9 +41,8 @@ namespace CommandLine.Text
                 yield return new Example("Usage with multiple examples to infer string transformation rules stored in file examples. Syntax in example is one transformation example per line as before => after", new Options { exampleFile = "examples" });
             }
         }
-
-
     }
+
 }
 
 namespace Microsoft.ProgramSynthesis.Transformation.Text
@@ -54,7 +55,17 @@ namespace Microsoft.ProgramSynthesis.Transformation.Text
             return Parser.Default.ParseArguments<Options>(args)
                 .MapResult(
                     options => run(options),
-                    _ => 1);
+                    errors => handleErrors(errors));
+        }
+
+        static int handleErrors(IEnumerable<Error> errors)
+        {
+            if (errors.Any(l => l.GetType() == typeof(VersionRequestedError)))
+            {
+                Console.Out.WriteLine();
+            }
+
+            return 0;
         }
 
         static Program buildProgram(Options options)

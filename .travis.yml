@@ -6,6 +6,9 @@ mono: none
 sudo: required
 dist: xenial
 dotnet: 2.2.104
+before_install:
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get update; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get install -y appstream; fi
 script:
  - dotnet restore
 after_success:

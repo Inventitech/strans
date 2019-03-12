@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2019 Moritz Beller -->
+<component type="console-application">
+  <id>com.inventitech.strans</id>
+  <name>strans</name>
+  <summary>Performs string manipulation by learning from the provided examples, instead of explicit programming</summary>
+  <description>
+    <p>strans (string transform) is an intuitive string manipulation utility for the shell (primarily Unix, but should work cross-platform). The user does not need to know any programming. All she needs to do is provide strans with a set of examples. strans will automagically learn transformation rules from these examples and apply them to the input given on STDIN.</p>
+  </description>
+  <url type="homepage">https://github.com/Inventitech/strans</url>
+  <metadata_license>CC-BY-SA-4.0</metadata_license>
+  <project_license>GPL-3.0</project_license>
+
+  <screenshots>
+    <screenshot type="default">
+      <image>https://github.com/Inventitech/strans/raw/master/strans.gif</image>
+    </screenshot>
+  </screenshots>
+
+  <provides>
+    <id>com.inventitech.strans.desktop</id>
+    <binary>strans-linux.AppImage</binary>
+  </provides>
+  <developer_name>Moritz Beller</developer_name>
+  ​<update_contact>moritzbeller_AT_gmx.de</update_contact>
+</component>

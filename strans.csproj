@@ -4,7 +4,7 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <RuntimeFrameworkVersion>2.2.0</RuntimeFrameworkVersion> 
-    <Version>0.0.2</Version>
+    <Version>0.0.3</Version>
     <Copyright>Copyirght (C) 2019 Moritz Beller (Inventitech)</Copyright>
     <RuntimeIdentifiers>linux-x64;osx-x64</RuntimeIdentifiers>
   </PropertyGroup>
@@ -13,7 +13,7 @@
     <CFBundleName>strans</CFBundleName>
     <CFBundleDisplayName>strans</CFBundleDisplayName>
     <CFBundleIdentifier>com.inventitech.strans</CFBundleIdentifier>
-    <CFBundleVersion>0.0.2</CFBundleVersion>
+    <CFBundleVersion>0.0.3</CFBundleVersion>
     <CFBundlePackageType>AAPL</CFBundlePackageType>
     <CFBundleSignature>com.inventitech.strans</CFBundleSignature>
     <CFBundleExecutable>strans</CFBundleExecutable>
@@ -27,7 +27,7 @@
     <PackageReference Include="CommandLineParser" Version="2.4.3" />
     <PackageReference Include="dotnet-bundle" Version="0.9.8" />
     <PackageReference Include="Dotnet.Bundle" Version="0.9.8" />
-    <PackageReference Include="Microsoft.ProgramSynthesis" Version="6.11.0" />
+    <PackageReference Include="Microsoft.ProgramSynthesis" Version="6.14.6" />
     <DotNetCliToolReference Include="dotnet-bundle" Version="*" />
   </ItemGroup>
 

@@ -9,8 +9,8 @@ strans
 
 `strans` (string transform) is an intuitive string manipulation
 utility for the shell (primarily Unix, but should work™
-cross-platform). The user does not need to know any programming. All
-she needs to do is provide `strans` with a set of examples. `strans`
+cross-platform). Users do not need to know anything about programming. All
+they need to do is provide `strans` with a set of examples. `strans`
 will automagically learn transformation rules from these examples and
 apply them to the input given on STDIN.
 
@@ -139,7 +139,7 @@ AEZ
 
 Note how `strans` adds the second example and generates a global
 transformation rule that satisfies all examples given to it. Simply
-having the last FML example would not be enough, because it would miss
+having the last FML example would not be enough because it would miss
 the case where only two names are available.
 
 How to Develop

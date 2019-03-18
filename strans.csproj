@@ -4,7 +4,10 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <RuntimeFrameworkVersion>2.2.0</RuntimeFrameworkVersion> 
-    <Version>0.0.3</Version>
+    <Version>0.0.4</Version>
+    <PackAsTool>true</PackAsTool>
+    <ToolCommandName>strans</ToolCommandName>
+    <PackageOutputPath>./nupkg</PackageOutputPath>
     <Copyright>Copyirght (C) 2019 Moritz Beller (Inventitech)</Copyright>
     <RuntimeIdentifiers>linux-x64;osx-x64</RuntimeIdentifiers>
   </PropertyGroup>
@@ -13,7 +16,7 @@
     <CFBundleName>strans</CFBundleName>
     <CFBundleDisplayName>strans</CFBundleDisplayName>
     <CFBundleIdentifier>com.inventitech.strans</CFBundleIdentifier>
-    <CFBundleVersion>0.0.3</CFBundleVersion>
+    <CFBundleVersion>0.0.4</CFBundleVersion>
     <CFBundlePackageType>AAPL</CFBundlePackageType>
     <CFBundleSignature>com.inventitech.strans</CFBundleSignature>
     <CFBundleExecutable>strans</CFBundleExecutable>

@@ -14,6 +14,7 @@ script:
  - dotnet restore
 after_success:
  - dotnet publish -c Release
+ - dotnet pack
  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sh release/release_linux.sh; fi
  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then sh release/release_macos.sh; fi
 deploy:

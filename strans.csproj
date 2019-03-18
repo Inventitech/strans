@@ -8,6 +8,7 @@
     <ToolCommandName>strans</ToolCommandName>
     <Copyright>Copyirght (C) 2019 Moritz Beller (Inventitech)</Copyright>
     <RuntimeIdentifiers>linux-x64;osx-x64</RuntimeIdentifiers>
+    <PackageLicenseExpression>GPL-3.0-only</PackageLicenseExpression>
   </PropertyGroup>
 
   <PropertyGroup>

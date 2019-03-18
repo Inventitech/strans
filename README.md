@@ -69,7 +69,7 @@ strans --help
 
 Examples
 ========
-![Strans in action](strans.gif "Strans in action")
+![Strans in action](https://github.com/Inventitech/strans/raw/master/strans.gif)
 
 ## Example 1: Extract ending of files
 

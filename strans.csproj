@@ -5,9 +5,7 @@
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <RuntimeFrameworkVersion>2.2.0</RuntimeFrameworkVersion> 
     <Version>0.0.4</Version>
-    <PackAsTool>true</PackAsTool>
     <ToolCommandName>strans</ToolCommandName>
-    <PackageOutputPath>./nupkg</PackageOutputPath>
     <Copyright>Copyirght (C) 2019 Moritz Beller (Inventitech)</Copyright>
     <RuntimeIdentifiers>linux-x64;osx-x64</RuntimeIdentifiers>
   </PropertyGroup>

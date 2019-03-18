@@ -13,8 +13,8 @@ addons:
 script:
  - dotnet restore
 after_success:
+ - dotnet pack -c release -o release/nupkg
  - dotnet publish -c Release
- - dotnet pack
  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sh release/release_linux.sh; fi
  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then sh release/release_macos.sh; fi
 deploy:
@@ -24,6 +24,7 @@ deploy:
    - release/strans-linux.AppImage
    - release/strans-macos.dmg
    - bin/Release/netcoreapp2.2/strans.dll
+   - release/nupkg/strans.*.nupkg
   skip_cleanup: true
   draft: true
   on:

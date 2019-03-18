@@ -20,6 +20,7 @@ after_success:
 deploy:
   provider: releases
   api_key: $GITHUBOAUTH
+  file_glob: true
   file:
    - release/strans-linux.AppImage
    - release/strans-macos.dmg

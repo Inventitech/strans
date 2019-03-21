@@ -22,12 +22,6 @@ standalone as an AppImage for Linux and as a DMG for MacOs.  Download
 the latest `strans` from
 [releases](https://github.com/Inventitech/strans/releases).
 
-## Platform-independent `dotnet`
-
-`strans` is available as a global tool on NuGet. If you have `dotnet`
-installed, you can simply `dotnet tool install -g strans` to install
-it (or use `update`, `uninstall` etc.). 
-
 ## Linux
 
 Our AppImage should run on practically any recent linux Desktop

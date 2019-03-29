@@ -3,8 +3,8 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.2</TargetFramework>
-    <RuntimeFrameworkVersion>2.2.0</RuntimeFrameworkVersion> 
-    <Version>0.0.4</Version>
+    <RuntimeFrameworkVersion>2.2</RuntimeFrameworkVersion> 
+    <Version>0.0.5</Version>
     <ToolCommandName>strans</ToolCommandName>
     <Authors>Inventitech</Authors>
     <RepositoryUrl>https://github.com/Inventitech/strans.git</RepositoryUrl>
@@ -17,7 +17,7 @@
     <CFBundleName>strans</CFBundleName>
     <CFBundleDisplayName>strans</CFBundleDisplayName>
     <CFBundleIdentifier>com.inventitech.strans</CFBundleIdentifier>
-    <CFBundleVersion>0.0.4</CFBundleVersion>
+    <CFBundleVersion>0.0.5</CFBundleVersion>
     <CFBundlePackageType>AAPL</CFBundlePackageType>
     <CFBundleSignature>com.inventitech.strans</CFBundleSignature>
     <CFBundleExecutable>strans</CFBundleExecutable>

@@ -22,11 +22,12 @@ How to Install
 Linux and as a DMG for MacOs.  Download the latest `strans` from
 [releases](https://github.com/Inventitech/strans/releases).
 
-## Platform-independent `dotnet`
+## Platform-independent global tool (requires `dotnet`)
 
-`strans` is available as a global tool on NuGet. If you have `dotnet`
-installed, you can simply `dotnet tool install -g strans` to install
-it (or use `update`, `uninstall` etc.).
+`strans` is available as a 
+[global tool on NuGet](https://www.nuget.org/packages/strans). If you 
+have `dotnet` installed, you can simply `dotnet tool install -g strans` 
+to install it (or use `dotnet tool update`, `uninstall` etc.).
 
 ## Linux
 

@@ -9,24 +9,24 @@ strans
 
 `strans` (string transform) is an intuitive string manipulation
 utility for the shell (primarily Unix, but should work™
-cross-platform). Users do not need to know anything about programming. All
-they need to do is provide `strans` with a set of examples. `strans`
-will automagically learn transformation rules from these examples and
-apply them to the input given on STDIN.
+cross-platform). Users do not need to know anything about
+programming. All they need to do is provide `strans` with a set of
+examples. `strans` will automagically learn transformation rules from
+these examples and apply them to the input given on STDIN.
 
 How to Install
 ==============
 
-`strans` is distributed as platform indepedently as NuGet package, or
-standalone as an AppImage for Linux and as a DMG for MacOs.  Download
-the latest `strans` from
+`strans` is distributed platform indepedently as a NuGet package, or
+(if you do not want to install dotnet) standalone as an AppImage for
+Linux and as a DMG for MacOs.  Download the latest `strans` from
 [releases](https://github.com/Inventitech/strans/releases).
 
 ## Platform-independent `dotnet`
 
 `strans` is available as a global tool on NuGet. If you have `dotnet`
 installed, you can simply `dotnet tool install -g strans` to install
-it (or use `update`, `uninstall` etc.). 
+it (or use `update`, `uninstall` etc.).
 
 ## Linux
 

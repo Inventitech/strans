@@ -14,7 +14,7 @@ programming. All they need to do is provide `strans` with a set of
 examples. `strans` will automagically learn transformation rules from
 these examples and apply them to the input given on STDIN.
 
-How to Install
+How to install
 ==============
 
 `strans` is distributed platform indepedently as a NuGet package, or
@@ -55,7 +55,7 @@ chmod +x /Applications/strans.app/Contents/MacOS/strans
 to run `strans`.
  
 
-How to Use
+How to use
 ==========
 ```
 # With before and after example
@@ -152,7 +152,7 @@ transformation rule that satisfies all examples given to it. Simply
 having the last FML example would not be enough because it would miss
 the case where only two names are available.
 
-How to Develop
+How to develop
 ==============
 
 You need [dotnet](https://dotnet.microsoft.com/) to run `strans`.

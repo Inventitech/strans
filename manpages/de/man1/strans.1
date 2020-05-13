@@ -1,0 +1,259 @@
+.\" Manpage for strans, extracted from the github page
+.\" GNU Parallel manpage was used as a template - nobody understands troff!
+.\" Standard preamble:
+.\" ========================================================================
+.de Sp \" Vertical space (when we can't use .PP)
+.if t .sp .5v
+.if n .sp
+..
+.de Vb \" Begin verbatim text
+.ft CW
+.nf
+.ne \\$1
+..
+.de Ve \" End verbatim text
+.ft R
+.fi
+..
+.\" Set up some character translations and predefined strings.  \*(-- will
+.\" give an unbreakable dash, \*(PI will give pi, \*(L" will give a left
+.\" double quote, and \*(R" will give a right double quote.  \*(C+ will
+.\" give a nicer C++.  Capital omega is used to do unbreakable dashes and
+.\" therefore won't be available.  \*(C` and \*(C' expand to `' in nroff,
+.\" nothing in troff, for use with C<>.
+.tr \(*W-
+.ds C+ C\v'-.1v'\h'-1p'\s-2+\h'-1p'+\s0\v'.1v'\h'-1p'
+.ie n \{\
+.    ds -- \(*W-
+.    ds PI pi
+.    if (\n(.H=4u)&(1m=24u) .ds -- \(*W\h'-12u'\(*W\h'-12u'-\" diablo 10 pitch
+.    if (\n(.H=4u)&(1m=20u) .ds -- \(*W\h'-12u'\(*W\h'-8u'-\"  diablo 12 pitch
+.    ds L" ""
+.    ds R" ""
+.    ds C` ""
+.    ds C' ""
+'br\}
+.el\{\
+.    ds -- \|\(em\|
+.    ds PI \(*p
+.    ds L" ``
+.    ds R" ''
+.    ds C`
+.    ds C'
+'br\}
+.\"
+.\" Escape single quotes in literal strings from groff's Unicode transform.
+.ie \n(.g .ds Aq \(aq
+.el       .ds Aq '
+.\"
+.\" If the F register is >0, we'll generate index entries on stderr for
+.\" titles (.TH), headers (.SH), subsections (.SS), items (.Ip), and index
+.\" entries marked with X<> in POD.  Of course, you'll have to process the
+.\" output yourself in some meaningful fashion.
+.\"
+.\" Avoid warning from groff about undefined register 'F'.
+.de IX
+..
+.if !\nF .nr F 0
+.if \nF>0 \{\
+.    de IX
+.    tm Index:\\$1\t\\n%\t"\\$2"
+..
+.    if !\nF==2 \{\
+.        nr % 0
+.        nr F 2
+.    \}
+.\}
+.\"
+.\" Accent mark definitions (@(#)ms.acc 1.5 88/02/08 SMI; from UCB 4.2).
+.\" Fear.  Run.  Save yourself.  No user-serviceable parts.
+.    \" fudge factors for nroff and troff
+.if n \{\
+.    ds #H 0
+.    ds #V .8m
+.    ds #F .3m
+.    ds #[ \f1
+.    ds #] \fP
+.\}
+.if t \{\
+.    ds #H ((1u-(\\\\n(.fu%2u))*.13m)
+.    ds #V .6m
+.    ds #F 0
+.    ds #[ \&
+.    ds #] \&
+.\}
+.    \" simple accents for nroff and troff
+.if n \{\
+.    ds ' \&
+.    ds ` \&
+.    ds ^ \&
+.    ds , \&
+.    ds ~ ~
+.    ds /
+.\}
+.if t \{\
+.    ds ' \\k:\h'-(\\n(.wu*8/10-\*(#H)'\'\h"|\\n:u"
+.    ds ` \\k:\h'-(\\n(.wu*8/10-\*(#H)'\`\h'|\\n:u'
+.    ds ^ \\k:\h'-(\\n(.wu*10/11-\*(#H)'^\h'|\\n:u'
+.    ds , \\k:\h'-(\\n(.wu*8/10)',\h'|\\n:u'
+.    ds ~ \\k:\h'-(\\n(.wu-\*(#H-.1m)'~\h'|\\n:u'
+.    ds / \\k:\h'-(\\n(.wu*8/10-\*(#H)'\z\(sl\h'|\\n:u'
+.\}
+.    \" troff and (daisy-wheel) nroff accents
+.ds : \\k:\h'-(\\n(.wu*8/10-\*(#H+.1m+\*(#F)'\v'-\*(#V'\z.\h'.2m+\*(#F'.\h'|\\n:u'\v'\*(#V'
+.ds 8 \h'\*(#H'\(*b\h'-\*(#H'
+.ds o \\k:\h'-(\\n(.wu+\w'\(de'u-\*(#H)/2u'\v'-.3n'\*(#[\z\(de\v'.3n'\h'|\\n:u'\*(#]
+.ds d- \h'\*(#H'\(pd\h'-\w'~'u'\v'-.25m'\f2\(hy\fP\v'.25m'\h'-\*(#H'
+.ds D- D\\k:\h'-\w'D'u'\v'-.11m'\z\(hy\v'.11m'\h'|\\n:u'
+.ds th \*(#[\v'.3m'\s+1I\s-1\v'-.3m'\h'-(\w'I'u*2/3)'\s-1o\s+1\*(#]
+.ds Th \*(#[\s+2I\s-2\h'-\w'I'u*3/5'\v'-.3m'o\v'.3m'\*(#]
+.ds ae a\h'-(\w'a'u*4/10)'e
+.ds Ae A\h'-(\w'A'u*4/10)'E
+.    \" corrections for vroff
+.if v .ds ~ \\k:\h'-(\\n(.wu*9/10-\*(#H)'\s-2\u~\d\s+2\h'|\\n:u'
+.if v .ds ^ \\k:\h'-(\\n(.wu*10/11-\*(#H)'\v'-.4m'^\v'.4m'\h'|\\n:u'
+.    \" for low resolution devices (crt and lpr)
+.if \n(.H>23 .if \n(.V>19 \
+\{\
+.    ds : e
+.    ds 8 ss
+.    ds o a
+.    ds d- d\h'-1'\(ga
+.    ds D- D\h'-1'\(hy
+.    ds th \o'bp'
+.    ds Th \o'LP'
+.    ds ae ae
+.    ds Ae AE
+.\}
+.rm #[ #] #H #V #F C
+.\" ========================================================================
+.\"
+.IX Title "strans 1"
+.TH strans 1 "2019-09-20" "strans 0.0.5" "strans"
+.\" For nroff, turn off justification.  Always turn off hyphenation; it makes
+.\" way too many mistakes in technical documents.
+.if n .ad l
+.nh
+.SH "NAME"
+strans \- ein intuitives Dienstprogramm zur Manipulation von Strings für die Shell.
+.SH "SYNOPSIS"
+.IX Header "SYNOPSIS"
+\&\fBstrans\fR -f file-with-examples [\fIOPTIONS\fR]
+.Sp
+\&\fBstrans\fR -b pattern-to-match -a desired-transformation [\fIOPTIONS\fR]
+.SH "DESCRIPTION"
+.IX Header "DESCRIPTION"
+strans (string transform) ist ein intuitives Dienstprogramm zur Manipulation von Strings für die Shell
+(Hauptsächlich Unix, sollte aber plattformübergreifend funktionieren). Benutzer müssen nichts wissen
+über die Programmierung. Alles, was sie tun müssen, ist strans eine Reihe von Beispielen zu geben.
+strans lernt aus diesen Beispielen automatisch Transformationsregeln und wendet diese an
+gegebenen STDIN an.
+.SH "USAGE"
+.IX Header "USAGE"
+.IP "\fB-b\fR, \fB--before\fR" 4
+.IX Item "-b, --before"
+Benötigt.
+.Sp
+Ein Beispiel für eine Eingabezeile vor der Transformation
+.IP "\fB-a\fR, \fB--after\fR" 4
+.IX Item "-a, --after"
+Benötigt.
+.Sp
+Ein Beispiel für eine Ausgabezeile nach der Transformation
+.IP "\fB-f\fR, \fB--example-file\fR" 4
+.IX Item "-f, --example-file"
+Eine Datei mit einem oder mehreren Transformationsbeispielen.
+.Sp
+Die Zeichenfolge vor und nach der Transformation wird durch => in der gleichen Zeile getrennt.
+Eine Zeile pro Beispiel. vorher => nachher
+.SH "OPTIONS"
+.IX Header "OPTIONS"
+.IP "\fB--save\fR \fI<file>\fR" 4
+.IX Item "--save <file>"
+Speichern Sie das abgeleitete Programm anhand der Beispiele in einer Datei.
+Führt das aktuelle Programm nicht aus.
+.IP "\fB--load\fR \fI<file>\fR" 4
+.IX Item "--load <file>"
+Erforderlich, wenn weder -a, -b noch -f verwendet wird.
+.Sp
+Laden Sie ein zuvor abgeleitetes Programm aus einer Datei.
+.IP "\fB--describe\fR" 4
+.IX Item "--describe"
+Ausdruck einer lesbaren Beschreibung des abgeleiteten Programms,
+basierend auf den Beispielen.
+Führt keine eigentliche String-Transformation durch.
+.IP "\fB--help\fR" 4
+.IX Item "--help"
+Nutzungsinformationen anzeigen
+.IP "\fB--version\fR" 4
+.IX Item "--version"
+Anwendungsversion anzeigen
+.SH "EXAMPLES"
+.IX Header "EXAMPLES"
+.SS "Dateiende extrahieren"
+.IX Subsection "Dateiende extrahieren"
+Nehmen wir an, dass
+.Sp
+.Vb 2
+\&  $ ls
+\&  Document.pdf  Document2.pdf  Document.txt  Document.png
+.Ve
+.Sp
+Nun wollen wir eine eindeutige Liste aller im Verzeichnis vorhandenen Dateiendungen erhalten:
+.PP
+.Vb 4
+\&  $ ls | strans -b Document.pdf -a pdf | sort -u
+\&  pdf
+\&  png
+\&  txt
+.Ve
+.SS "Umwandlung des vollständigen Names in Initialen"
+.IX Subsection "Umwandlung des vollständigen Names in Initialen"
+.PP
+.Vb 3
+\&  $ printf "Moritz Beller\enGeorgios Gousios" | strans -b "First Last" -a "FL"
+\&  MB
+\&  GG
+.Ve
+.Sp
+Wenn wir jedoch einen dritten Eintrag mit einem zweiten Vornamen, Andy Emil Zaidman, hinzufügen,
+funktioniet das angegebene Beispiel nicht mehr,
+da dies nicht in den Initialen erscheint. Wir können dies beheben, indem wir strans ein weiteres Beispiel geben.
+Wir erstellen eine Datei namens example-transformations.
+.PP
+.Vb 9
+\&  $ cat example-transformations
+\&  First Last => FL
+\&  Firstname Middlename Lastname => FML
+\&  
+\&  $ printf "Moritz Beller\enGeorgios Gousios\enAndy Emil Zaidman" | \e
+\&    strans --example-file example-transformations
+\&  MB
+\&  GG
+\&  AEZ
+.Ve
+.SH "FEHLERMELDUNG UND HILFE"
+.IX Header "FEHLERMELDUNG UND HILFE"
+Der offizielle Projekt-Tracker ist hier zu finden \fIhttps://github.com/Inventitech/strans\fR.
+.PP
+Ihr Fehlerbericht sollte immer enthalten:
+.IP "\(bu" 2
+Die Fehlermeldung, die Sie erhalten (falls vorhanden). Wenn die Fehlermeldung nicht von \fBstrans\fR stammt,
+müssen Sie nachweisen, warum Ihrer Meinung nach \fBstrans\fR diese verursacht hat.
+.IP "\(bu" 2
+Die vollständige Ausgabe von \fBstrans \-\-version \fR. Wenn Sie nicht die neueste veröffentlichte
+Version ausführen, sollten Sie angeben, warum das Problem Ihrer Meinung nach in dieser Version nicht behoben ist.
+.IP "\(bu" 2
+Ein minimales, vollständiges und überprüfbares Beispiel (siehe Beschreibung unter http://stackoverflow.com/help/mcve).
+.SH "AUTOR"
+.IX Header "AUTOR"
+\fBstrans\fR wird von "Moritz Beller" (http://www.inventitech.com) geschrieben und gepflegt.
+.PP
+Diese Manpage wurde von "Jaja" (jaja@mailbox.org) mit Informationen von der Github-Projektseite
+und der Manpage "GNU Parallel" als Vorlage erstellt.
+.SH "LIZENZ"
+.IX Header "LIZENZ"
+Diese Software ist unter \fIGPL3\fR lizenziert.
+.PP
+Eine Kopie dieser Lizenzen und Lizenzen von Drittanbietern, die von einigen Bibliotheken verwendet werden,
+werden mit dieser Software verteilt. Siehe \fI/usr/share/licenses/common/GPL3\fR.
